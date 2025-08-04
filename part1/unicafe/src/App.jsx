@@ -2,6 +2,12 @@ import {useState} from 'react'
 
 const Button = (props) => <button onClick = {props.onClick}>{props.text}</button>
 
+const StatisticLine = (props) => {
+  return (
+    <p>{props.text} {props.value}</p>
+  )
+}
+
 const Statistics = (props) => {
   const good = props.good
   const neutral = props.neutral
@@ -18,12 +24,12 @@ const Statistics = (props) => {
 
   return (
     <div>
-      <p>good {good}</p>
-      <p>neutral {neutral}</p>
-      <p>bad {bad}</p>
-      <p>all {total}</p>
-      <p>average {(good - bad) / total}</p>
-      <p>positive {(good * 100) / total} %</p>
+      <StatisticLine text = 'good' value = {good} />
+      <StatisticLine text = 'neutral' value = {neutral} />
+      <StatisticLine text = 'bad' value = {bad} />
+      <StatisticLine text = 'all' value = {total} />
+      <StatisticLine text = 'average' value = {(good - bad) / total} />
+      <StatisticLine text = 'positive' value = {(good * 100) / total} />
     </div>
   )
 }
